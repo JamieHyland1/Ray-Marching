@@ -1,13 +1,13 @@
 let buildings = []
-let b = new Building(50,50,50)
+
 let ray;
 function setup() {
    createCanvas(displayWidth,720);
    background(52);
    ray = new Ray(50,50)
-   for(var i = 0; i < 3; i++){
+   for(var i = 0; i < 5; i++){
      let size = random(100,200)
-     buildings.push(new Building(random(displayWidth-size),random(720-size),size, 'CIRCLE'))
+     buildings.push(new Building(random((displayWidth/3)-size,displayWidth),random(720-size),size, 'CIRCLE'))
    }
 }
 
@@ -17,5 +17,7 @@ function draw() {
         building.show();
     }
     ray.update(mouseX,mouseY);
+    console.log(ray.getShortestDistance(buildings))
     ray.show();
+    ray.castRay();
 }
