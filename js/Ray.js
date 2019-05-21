@@ -24,6 +24,7 @@ class Ray{
       this.radius =  minDistance
   }
   castRay(){
+    //rotate(this.angle)
     fill(255,255,255,100)
     stroke(255)
     ellipse(this.pos.x,this.pos.y,this.radius*2,this.radius*2)
@@ -32,6 +33,7 @@ class Ray{
     stroke(255,255,255,100)
     line(this.pos.x,this.pos.y, displayWidth, this.pos.y)
     this.newRay = createVector(this.pos.x + this.radius, this.pos.y);
+
   }
   update(x,y){
     this.pos.x = x;

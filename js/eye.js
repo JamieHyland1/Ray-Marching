@@ -2,7 +2,7 @@ class Eye{
   constructor(x,y,ray){
     this.pos = createVector(x,y);
     this.rays = [new Ray(this.pos.x,this.pos.y)];
-
+    this.angle = 0;
   }
   show(){
     fill(0)
@@ -22,10 +22,11 @@ class Eye{
          ray.castRay();
       }
         this.removeRays();
-        if(this.rays[this.rays.length-1].radius > 30){
+        if(this.rays[this.rays.length-1].radius > 10){
             this.createRay();
         }
       }
+
   }
 
   createRay(){
@@ -36,7 +37,7 @@ class Eye{
     }
   removeRays(){
     for(var i = 0; i < this.rays.length; i++){
-      if(this.rays[i].radius < 50) this.rays.splice(i)
+      if(this.rays[i].radius < 10) this.rays.splice(i)
     }
   }
 
