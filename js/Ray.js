@@ -2,7 +2,8 @@ class Ray{
   constructor(x,y){
     this.pos = createVector(x,y)
     this.shortestDisance;
-    this.test;
+    this.radius;
+    this.newRay;
   }
   show(){
     stroke(255)
@@ -20,13 +21,17 @@ class Ray{
               this.shortestDisance = p5.Vector.sub(this.pos,building.pos)
           }
       }
-
-      this.test =  minDistance
+      this.radius =  minDistance
   }
   castRay(){
     fill(255,255,255,100)
-    ellipse(this.pos.x,this.pos.y,this.test*2,this.test*2)
-    //line(this.pos.x,this.pos.y,this.shortestDisance.x*-1,-this.shortestDisance.y)
+    stroke(255)
+    ellipse(this.pos.x,this.pos.y,this.radius*2,this.radius*2)
+    strokeWeight(2)
+    line(this.pos.x,this.pos.y, this.pos.x + this.radius, this.pos.y)
+    stroke(255,255,255,100)
+    line(this.pos.x,this.pos.y, displayWidth, this.pos.y)
+    this.newRay = createVector(this.pos.x + this.radius, this.pos.y);
   }
   update(x,y){
     this.pos.x = x;
