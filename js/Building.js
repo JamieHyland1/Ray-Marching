@@ -6,7 +6,7 @@ class Building{
 
   }
   show(){
-    stroke(255);
+    noStroke();
     fill(0,0,0,100);
     (this.shape === 'BOX') ? rect(this.pos.x,this.pos.y,this.size,this.size) : ellipse(this.pos.x,this.pos.y,this.size,this.size);
   }

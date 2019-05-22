@@ -22,7 +22,7 @@ class Eye{
          ray.castRay();
       }
         this.removeRays();
-        if(this.rays[this.rays.length-1].radius > 10){
+        if(this.rays[this.rays.length-1].radius > 0.2 && this.rays[this.rays.length-1].pos.x < displayWidth){
             this.createRay();
         }
       }
@@ -37,7 +37,11 @@ class Eye{
     }
   removeRays(){
     for(var i = 0; i < this.rays.length; i++){
-      if(this.rays[i].radius < 10) this.rays.splice(i)
+      if(this.rays[i].radius < 0.2) {
+          intersections.push({x:this.rays[i].pos.x, y: this.rays[i].pos.y})
+          console.log(intersections.length)
+          this.rays.splice(i)
+      }
     }
   }
 
